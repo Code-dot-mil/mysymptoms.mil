@@ -1,0 +1,465 @@
+.titleNoHeader {
+	color: #5cd5ee;
+	font-weight: 300;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	font-size: 40px;
+	text-align: center;
+	line-height: 1.25;
+	padding: 0px 10px;
+	font-family: 'Public Sans', sans-serif;
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+
+	@media screen and (max-width: 700px) {
+		max-width: 350px;
+		font-size: 36px;
+	}
+	@media screen and (max-width: 550px) {
+		max-width: 300px;
+		font-size: 32px;
+	}
+	@media screen and (max-width: 450px) {
+		max-width: 250px;
+		font-size: 26px;
+	}
+	@media screen and (max-width: 275px) {
+		padding: 0px 20px;
+		br {
+			display: none;
+		}
+	}
+
+	span.bold {
+		font-weight: 700;
+	}
+}
+.header {
+	background-color: #496fd8;
+	padding: 30px;
+
+	@media screen and (max-width: 550px) {
+		padding: 30px 25px;
+	}
+	@media screen and (max-width: 450px) {
+		padding: 30px 20px;
+	}
+
+	h2 {
+		font-size: 44px;
+		color: white;
+		font-weight: 300;
+		margin-top: 0px;
+		margin-bottom: 30px;
+		text-align: center;
+		line-height: 1.25;
+		padding: 0px 10px;
+		font-family: 'Public Sans', sans-serif;
+
+		@media screen and (max-width: 700px) {
+			font-size: 42px;
+			margin-bottom: 20px;
+		}
+		@media screen and (max-width: 550px) {
+			font-size: 36px;
+		}
+		@media screen and (max-width: 450px) {
+			font-size: 32px;
+		}
+		@media screen and (max-width: 350px) {
+			font-size: 24px;
+		}
+
+		.bold {
+			font-weight: 700;
+		}
+		.covidLine {
+			display: block;
+
+			@media screen and (max-width: 750px) {
+				display: inline;
+			}
+		}
+	}
+	.barBackground {
+		position: relative;
+		width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+		height: 40px;
+		border-radius: 15px;
+		padding: 0px 10px;
+		background: rgb(37, 108, 0);
+		background: linear-gradient(
+			90deg,
+			rgba(37, 108, 0, 1) 0%,
+			rgba(219, 190, 28, 1) 33.33%,
+			rgba(238, 135, 36, 1) 66.666%,
+			rgba(213, 0, 0, 1) 100%
+		);
+
+		@media screen and (max-width: 660px) {
+			width: 100%;
+		}
+
+		.barLabelWrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+
+			.barLabel {
+				font-size: 16px;
+				color: white;
+				font-weight: 300;
+
+				@media screen and (max-width: 550px) {
+					font-size: 15px;
+				}
+				@media screen and (max-width: 450px) {
+					font-size: 14px;
+				}
+			}
+		}
+		.barIcon {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 65px;
+			filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.25));
+			color: white;
+
+			@media screen and (max-width: 550px) {
+				font-size: 55px;
+			}
+			@media screen and (max-width: 450px) {
+				font-size: 50px;
+			}
+			@media screen and (max-width: 350px) {
+				font-size: 40px;
+			}
+		}
+	}
+}
+.wrapper {
+	padding: 20px 40px;
+	max-width: 900px;
+	margin: 0px auto;
+
+	@media screen and (max-width: 700px) {
+	}
+	@media screen and (max-width: 550px) {
+		padding: 20px 25px;
+	}
+	@media screen and (max-width: 450px) {
+		padding: 20px 20px;
+	}
+
+	p {
+		line-height: 1.5;
+		margin-top: 10px;
+		margin-bottom: 30px;
+		font-size: 22px;
+		margin-left: auto;
+		margin-right: auto;
+
+		span.bold {
+			font-weight: 700;
+		}
+
+		@media screen and (max-width: 700px) {
+			font-size: 20px;
+		}
+		@media screen and (max-width: 550px) {
+			font-size: 18px;
+		}
+		@media screen and (max-width: 450px) {
+			font-size: 16px;
+		}
+	}
+	h3 {
+		font-size: 28px;
+
+		@media screen and (max-width: 700px) {
+			font-size: 24px;
+		}
+		@media screen and (max-width: 550px) {
+			font-size: 22px;
+		}
+		@media screen and (max-width: 450px) {
+			font-size: 20px;
+		}
+		@media screen and (max-width: 350px) {
+			font-size: 18px;
+		}
+	}
+
+	ol {
+		margin: 0px;
+		padding: 0px;
+		padding-left: 30px;
+		margin-bottom: 20px;
+
+		li {
+			margin-bottom: 10px;
+			padding-left: 5px;
+			font-size: 18px;
+			line-height: 1.35;
+			font-weight: 300;
+
+			@media screen and (max-width: 700px) {
+				font-size: 17px;
+			}
+			@media screen and (max-width: 550px) {
+				font-size: 16px;
+			}
+			@media screen and (max-width: 450px) {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.blockWrapper {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		padding: 30px 0px;
+
+		@media screen and (max-width: 700px) {
+			display: block;
+			padding: 30px 0px 0px;
+		}
+
+		.block {
+			width: 50%;
+			padding: 10px 0px;
+
+			@media screen and (max-width: 700px) {
+				width: 100%;
+				border-top: 2px solid #e8e8e8;
+				padding: 30px 0px;
+				margin-bottom: 0px;
+			}
+
+			&:only-child {
+				border-top: 2px solid #e8e8e8;
+				padding-top: 30px;
+				width: 100%;
+			}
+			&:nth-child(odd) {
+				padding-right: 20px;
+
+				@media screen and (max-width: 700px) {
+					padding-right: 0px;
+				}
+			}
+			&:nth-child(even) {
+				border-left: 2px solid #e8e8e8;
+				padding-left: 20px;
+				@media screen and (max-width: 700px) {
+					border-left: none;
+					padding-left: 0px;
+				}
+			}
+
+			h4 {
+				margin-top: 0px;
+				font-size: 24px;
+				margin-bottom: 20px;
+
+				@media screen and (max-width: 700px) {
+					font-size: 22px;
+				}
+				@media screen and (max-width: 550px) {
+					font-size: 20px;
+				}
+				@media screen and (max-width: 450px) {
+					font-size: 18px;
+				}
+				@media screen and (max-width: 350px) {
+					font-size: 16px;
+				}
+			}
+			p {
+				line-height: 1.25;
+				margin-top: 0px;
+				margin-bottom: 30px;
+				font-size: 18px;
+				margin-left: auto;
+				margin-right: auto;
+
+				span.bold {
+					font-weight: 700;
+				}
+
+				@media screen and (max-width: 700px) {
+					font-size: 16px;
+				}
+				@media screen and (max-width: 550px) {
+					font-size: 15px;
+				}
+				@media screen and (max-width: 450px) {
+					font-size: 14px;
+				}
+			}
+			a {
+				color: #0050d8;
+				font-size: 18px;
+
+				@media screen and (max-width: 700px) {
+					font-size: 16px;
+				}
+				@media screen and (max-width: 550px) {
+					font-size: 15px;
+				}
+				@media screen and (max-width: 450px) {
+					font-size: 14px;
+				}
+			}
+			ul {
+				margin: 0px;
+				padding: 0px;
+
+				li {
+					list-style: none;
+					margin-bottom: 10px;
+					padding-left: 5px;
+					font-size: 18px;
+					line-height: 1.35;
+					font-weight: 300;
+
+					@media screen and (max-width: 700px) {
+						font-size: 17px;
+					}
+					@media screen and (max-width: 550px) {
+						font-size: 16px;
+					}
+					@media screen and (max-width: 450px) {
+						font-size: 14px;
+					}
+				}
+			}
+			ol {
+				margin: 0px;
+				padding-left: 15px;
+
+				li {
+					line-height: 1.25;
+					margin-bottom: 20px;
+					margin-left: 0px;
+					font-size: 18px;
+
+					&:last-child {
+						margin-bottom: 0px;
+					}
+
+					@media screen and (max-width: 700px) {
+						font-size: 16px;
+					}
+					@media screen and (max-width: 550px) {
+						font-size: 15px;
+					}
+					@media screen and (max-width: 450px) {
+						font-size: 14px;
+					}
+
+					span.bold {
+						font-weight: 700;
+					}
+				}
+			}
+		}
+	}
+	.milInstructions {
+		border-top: 2px solid #e8e8e8;
+		padding-top: 30px;
+
+		p {
+			line-height: 1.5;
+			margin-top: 0px;
+			margin-bottom: 15px;
+			font-size: 16px;
+			margin-left: auto;
+			margin-right: auto;
+
+			span.bold {
+				font-weight: 700;
+			}
+
+			@media screen and (max-width: 700px) {
+				font-size: 15px;
+			}
+			@media screen and (max-width: 550px) {
+				font-size: 14px;
+			}
+			@media screen and (max-width: 450px) {
+				font-size: 12px;
+			}
+		}
+
+		ol {
+			margin: 0px;
+			padding: 0px;
+			padding-left: 30px;
+			margin-bottom: 30px;
+
+			li {
+				margin-bottom: 10px;
+				padding-left: 5px;
+				font-size: 16px;
+				line-height: 1.35;
+				font-weight: 300;
+
+				@media screen and (max-width: 700px) {
+					font-size: 15px;
+				}
+				@media screen and (max-width: 550px) {
+					font-size: 14px;
+				}
+				@media screen and (max-width: 450px) {
+					font-size: 13px;
+				}
+
+				.arrowIcon {
+					margin-right: 10px;
+					font-size: 24px;
+					flex-shrink: 0;
+
+					@media screen and (max-width: 700px) {
+						font-size: 22px;
+					}
+					@media screen and (max-width: 550px) {
+						font-size: 20px;
+					}
+					@media screen and (max-width: 450px) {
+						font-size: 19px;
+					}
+					@media screen and (max-width: 350px) {
+						font-size: 18px;
+					}
+				}
+			}
+		}
+	}
+	&.additional {
+		background-color: #eff5fd;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+		padding-bottom: 30px;
+
+		ul {
+			li {
+				display: block;
+				line-height: 1.5;
+				font-size: 16px;
+				margin-bottom: 15px;
+
+				.bold {
+					font-weight: 700;
+				}
+			}
+		}
+	}
+}

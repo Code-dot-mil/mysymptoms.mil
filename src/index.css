@@ -1,0 +1,146 @@
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Public Sans', sans-serif;
+	color: #1b1b1b;
+}
+
+a {
+	color: inherit;
+}
+
+@font-face {
+	font-family: 'Public Sans';
+	font-style: normal;
+	font-weight: 100;
+	src: url('./assets/fonts/public-sans/public-sans-v3-latin-100.eot');
+	src: local(''),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-100.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-100.woff2') format('woff2'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-100.woff') format('woff'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-100.ttf') format('truetype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-100.svg#PublicSans') format('svg');
+}
+@font-face {
+	font-family: 'Public Sans';
+	font-style: normal;
+	font-weight: 300;
+	src: url('./assets/fonts/public-sans/public-sans-v3-latin-300.eot');
+	src: local(''),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-300.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-300.woff2') format('woff2'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-300.woff') format('woff'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-300.ttf') format('truetype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-300.svg#PublicSans') format('svg');
+}
+@font-face {
+	font-family: 'Public Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url('./assets/fonts/public-sans/public-sans-v3-latin-regular.eot');
+	src: local(''),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-regular.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-regular.woff2') format('woff2'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-regular.woff') format('woff'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-regular.ttf') format('truetype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-regular.svg#PublicSans') format('svg');
+}
+@font-face {
+	font-family: 'Public Sans';
+	font-style: normal;
+	font-weight: 500;
+	src: url('./assets/fonts/public-sans/public-sans-v3-latin-500.eot');
+	src: local(''),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-500.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-500.woff2') format('woff2'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-500.woff') format('woff'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-500.ttf') format('truetype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-500.svg#PublicSans') format('svg');
+}
+@font-face {
+	font-family: 'Public Sans';
+	font-style: normal;
+	font-weight: 600;
+	src: url('./assets/fonts/public-sans/public-sans-v3-latin-600.eot');
+	src: local(''),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-600.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-600.woff2') format('woff2'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-600.woff') format('woff'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-600.ttf') format('truetype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-600.svg#PublicSans') format('svg');
+}
+@font-face {
+	font-family: 'Public Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: url('./assets/fonts/public-sans/public-sans-v3-latin-700.eot');
+	src: local(''),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-700.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-700.woff2') format('woff2'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-700.woff') format('woff'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-700.ttf') format('truetype'),
+		url('./assets/fonts/public-sans/public-sans-v3-latin-700.svg#PublicSans') format('svg');
+}
+
+@font-face {
+	font-family: 'Merriweather';
+	font-style: normal;
+	font-weight: 300;
+	src: url('./assets/fonts/merriweather/merriweather-v21-latin-300.eot');
+	src: local('Merriweather Light'), local('Merriweather-Light'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-300.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-300.woff2') format('woff2'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-300.woff') format('woff'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-300.ttf') format('truetype'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-300.svg#Merriweather') format('svg');
+}
+
+@font-face {
+	font-family: 'Merriweather';
+	font-style: normal;
+	font-weight: 400;
+	src: url('./assets/fonts/merriweather/merriweather-v21-latin-regular.eot');
+	src: local('Merriweather Regular'), local('Merriweather-Regular'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-regular.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-regular.woff2') format('woff2'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-regular.woff') format('woff'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-regular.ttf') format('truetype'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-regular.svg#Merriweather')
+			format('svg');
+}
+
+@font-face {
+	font-family: 'Merriweather';
+	font-style: normal;
+	font-weight: 700;
+	src: url('./assets/fonts/merriweather/merriweather-v21-latin-700.eot');
+	src: local('Merriweather Bold'), local('Merriweather-Bold'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-700.eot?#iefix')
+			format('embedded-opentype'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-700.woff2') format('woff2'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-700.woff') format('woff'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-700.ttf') format('truetype'),
+		url('./assets/fonts/merriweather/merriweather-v21-latin-700.svg#Merriweather') format('svg');
+}

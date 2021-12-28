@@ -1,0 +1,162 @@
+version: '2.1'
+
+executors:
+    main:
+        working_directory: ~/project/covid19-frontend
+        docker:
+            - image: cimg/node:12.9
+commands:
+    install_aws:
+        parameters:
+            version:
+                type: string
+        steps:
+            - run:
+                  name: Install AWS CLI
+                  command: |
+                      set -euo pipefail
+                      gpg --import sigs/awscliv2_pgp.key
+                      curl -sSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-<< parameters.version >>.zip" -o awscliv2.zip
+                      curl -sSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-<< parameters.version >>.zip.sig" -o awscliv2.sig
+                      gpg --verify awscliv2.sig awscliv2.zip
+                      unzip awscliv2.zip
+                      ./aws/install --update
+                      rm -r awscliv2.zip awscliv2.sig aws
+            - run: aws --version
+    deploy:
+        parameters:
+        steps:
+            - run:
+                  name: Upload Versioned files
+                  command: |
+                      aws s3 sync \
+                      --cache-control 'max-age=604800' \
+                      --exclude 'index.html' \
+                      --exclude 'robots.txt' \
+                      --exclude 'favicon.ico' \
+                      --exclude 'service-worker.js' \
+                      --exclude '*.json' \
+                      --exclude 'logo*.png' \
+                      build s3://${AWS_S3_BUCKET}
+            - run:
+                  name: Upload non-versioned files
+                  command: |
+                      aws s3 sync \
+                      --cache-control 'no-cache' \
+                      build s3://${AWS_S3_BUCKET}
+            - run:
+                  name: Create Invalidation
+                  command: |
+                      aws cloudfront create-invalidation \
+                      --distribution-id "${AWS_CLOUDFRONT_DISTRIBUTION_ID}" \
+                      --paths "/index.html" \
+                      --paths "/robots.txt" \
+                      --paths "/favicon.ico" \
+                      --paths '/service-worker.js' \
+                      --paths "/*.json" \
+                      --paths "/logo*.png"
+jobs:
+    build:
+        executor: main
+        steps:
+            - checkout
+            - run: node --version
+            - run: npm install .
+            - run: npm run test
+            - run:
+                  name: npm run build
+                  command: npm run build
+                  environment:
+                      REACT_APP_GTAG_ENABLED: 1
+                      REACT_APP_GA_MEASUREMENT_ID: 'UA-161862288-1'
+            - run: scripts/make-health
+            - persist_to_workspace:
+                  root: .
+                  paths:
+                      - build/*
+    deploy_experimental:
+        executor: main
+        steps:
+            - checkout
+            - run: echo 'export FQDN=${FQDN_EXPERIMENTAL}' >> $BASH_ENV
+            - run: echo 'export AWS_S3_BUCKET=${AWS_S3_BUCKET_EXPERIMENTAL}' >> $BASH_ENV
+            - run: echo 'export AWS_CLOUDFRONT_DISTRIBUTION_ID=${AWS_CLOUDFRONT_DISTRIBUTION_ID_EXPERIMENTAL}' >> $BASH_ENV
+            - attach_workspace:
+                  at: .
+            - run: ls -alsh build
+            - install_aws:
+                  version: '2.0.1'
+            - deploy
+    deploy_staging:
+        executor: main
+        steps:
+            - checkout
+            - run: echo 'export FQDN=${FQDN_STAGING}' >> $BASH_ENV
+            - run: echo 'export AWS_S3_BUCKET=${AWS_S3_BUCKET_STAGING}' >> $BASH_ENV
+            - run: echo 'export AWS_CLOUDFRONT_DISTRIBUTION_ID=${AWS_CLOUDFRONT_DISTRIBUTION_ID_STAGING}' >> $BASH_ENV
+            - run:
+                  name: Compare against deployed commit
+                  command: scripts/compare-deployed-commit ${FQDN} $CIRCLE_SHA1
+            - attach_workspace:
+                  at: .
+            - run: ls -alsh build
+            - install_aws:
+                  version: '2.0.1'
+            - deploy
+    deploy_prod:
+        executor: main
+        steps:
+            - checkout
+            - run: echo 'export FQDN=${FQDN_PROD}' >> $BASH_ENV
+            - run: echo 'export AWS_S3_BUCKET=${AWS_S3_BUCKET_PROD}' >> $BASH_ENV
+            - run: echo 'export AWS_CLOUDFRONT_DISTRIBUTION_ID=${AWS_CLOUDFRONT_DISTRIBUTION_ID_PROD}' >> $BASH_ENV
+            - run: node --version
+            - run: npm install .
+            - run: npm run test
+            - run:
+                  name: npm run build
+                  command: npm run build
+                  environment:
+                      REACT_APP_DAP_ENABLED: 1
+                      REACT_APP_GTAG_ENABLED: 1
+                      REACT_APP_GA_MEASUREMENT_ID: 'UA-161862288-1'
+            - run: scripts/make-health
+            - run:
+                  name: Compare against deployed commit
+                  command: scripts/compare-deployed-commit ${FQDN} $CIRCLE_SHA1
+            - run: "echo 'User-agent: *' > ./build/robots.txt"
+            - run: "echo 'Disallow: ' >> ./build/robots.txt"
+            - run: ls -alsh build
+            - install_aws:
+                  version: '2.0.1'
+            - deploy
+workflows:
+    version: 2
+    main:
+        jobs:
+            - build
+            - deploy_experimental:
+                  requires:
+                      - build
+                  filters:
+                      branches:
+                          only: experimental
+            - deploy_staging:
+                  requires:
+                      - build
+                  filters:
+                      branches:
+                          only: master
+            - approve_prod_deploy:
+                  type: approval
+                  requires:
+                      - deploy_staging
+                  filters:
+                      branches:
+                          only: master
+            - deploy_prod:
+                  requires:
+                      - approve_prod_deploy
+                  filters:
+                      branches:
+                          only: master

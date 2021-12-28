@@ -1,0 +1,100 @@
+.container {
+	background-color: #f5f6f7;
+	border-top: 1px solid #d0d0d0;
+	padding: 50px 0px;
+	flex-shrink: 0;
+
+	@media screen and (max-width: 700px) {
+		padding: 30px 0px;
+	}
+
+	.content {
+		display: flex;
+		justify-content: space-between;
+		max-width: 860px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0px 30px;
+
+		@media screen and (max-width: 700px) {
+			display: block;
+			text-align: center;
+		}
+		.ddsLink {
+			text-decoration: none;
+			.leftColumn {
+				display: flex;
+				align-items: center;
+				flex-shrink: 0;
+
+				@media screen and (max-width: 700px) {
+					display: block;
+					text-align: center;
+				}
+
+				.brandmark {
+					width: 100%;
+					width: 90px;
+				}
+				.poweredBy {
+					text-align: left;
+					font-size: 14px;
+					font-weight: 700;
+					margin-left: 10px;
+					color: #1a4480;
+
+					@media screen and (max-width: 700px) {
+						text-align: center;
+						margin-left: 0px;
+						margin-top: 5px;
+						margin-bottom: 30px;
+					}
+				}
+			}
+		}
+		.rightColumn {
+			display: flex;
+
+			@media screen and (max-width: 700px) {
+				flex-direction: column;
+			}
+
+			.rightSubcolumn {
+				padding-left: 20px;
+				display: flex;
+				flex-direction: column;
+
+				@media screen and (max-width: 700px) {
+					padding-left: 0px;
+				}
+
+				.link {
+					color: #0050d8;
+					font-size: 12px;
+					margin: 0px 5px 10px;
+					line-height: 1.25;
+					text-align: left;
+
+					@media screen and (max-width: 700px) {
+						text-align: center;
+					}
+				}
+				.copyright {
+					text-align: right;
+					font-size: 12px;
+					font-weight: 300;
+					margin-top: 10px;
+					margin-bottom: 0px;
+					margin-left: 5px;
+					color: #5c5c5c;
+
+					@media screen and (max-width: 700px) {
+						margin-top: 20px;
+						text-align: center;
+						margin-left: 0px;
+					}
+				}
+			}
+		}
+	}
+}

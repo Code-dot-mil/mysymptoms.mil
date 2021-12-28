@@ -1,0 +1,1 @@
+export { FullTerms } from './FullTerms'

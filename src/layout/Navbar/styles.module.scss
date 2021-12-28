@@ -1,0 +1,81 @@
+.header {
+	background-color: #162e51;
+	padding: 15px 30px;
+
+	@media screen and (max-width: 450px) {
+		padding: 15px 25px;
+	}
+	@media screen and (max-width: 350px) {
+		padding: 15px 20px;
+	}
+	@media screen and (max-width: 250px) {
+		padding: 12px 15px;
+	}
+}
+.link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+}
+.logo {
+	width: 100px;
+
+	@media screen and (max-width: 700px) {
+		width: 90px;
+	}
+	@media screen and (max-width: 550px) {
+		width: 70px;
+	}
+	@media screen and (max-width: 450px) {
+		width: 60px;
+	}
+	@media screen and (max-width: 350px) {
+		width: 50px;
+	}
+	@media screen and (max-width: 250px) {
+		width: 40px;
+	}
+}
+.title {
+	color: white;
+	font-size: 22px;
+	line-height: 1.25;
+	font-weight: 300;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	font-family: 'Merriweather', serif;
+
+	@media screen and (max-width: 700px) {
+		font-size: 20px;
+	}
+	@media screen and (max-width: 550px) {
+		font-size: 16px;
+		line-height: 1.35;
+		margin-left: 15px;
+	}
+	@media screen and (max-width: 450px) {
+		line-height: 1.5;
+		margin-left: 10px;
+		font-size: 15px;
+	}
+	@media screen and (max-width: 350px) {
+		font-size: 14px;
+		max-width: 200px;
+		br {
+			display: none;
+		}
+	}
+	@media screen and (max-width: 250px) {
+		font-size: 12px;
+	}
+
+	.small {
+		font-size: 75%;
+	}
+
+	.bold {
+		font-weight: 700;
+	}
+}

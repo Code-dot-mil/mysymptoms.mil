@@ -1,0 +1,67 @@
+.container {
+	background-color: white;
+	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	z-index: 1;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+
+	@media screen and (max-width: 700px) {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0px;
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		padding: 10px;
+	}
+}
+button.backButton {
+	color: #5c5c5c;
+	width: auto;
+	margin-right: 10%;
+	display: flex;
+	text-decoration: none;
+
+	@media screen and (max-width: 700px) {
+		margin-right: 10px;
+	}
+}
+.leftArrow {
+	margin-right: 5px;
+}
+.progressBackground {
+	background-color: #d8d8d8;
+	height: 30px;
+	border-radius: 20px;
+	position: relative;
+	width: 100%;
+
+	.progress {
+		background-color: #29e1cb;
+		height: 100%;
+		border-radius: 20px;
+		position: absolute;
+		left: 0px;
+		right: 0px;
+
+		&.complete {
+			background-color: #1a4480;
+		}
+	}
+	.progressPlaceholder {
+		color: #1b1b1b;
+		font-size: 18px;
+		text-align: center;
+		z-index: 1;
+		line-height: 30px;
+		display: block;
+		font-weight: 300;
+		position: relative;
+
+		&.completeLabel {
+			color: white;
+		}
+	}
+}

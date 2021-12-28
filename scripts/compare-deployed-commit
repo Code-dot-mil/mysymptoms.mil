@@ -1,0 +1,63 @@
+#! /usr/bin/env bash
+#
+#   compare-deployed-commit checks that the given commit is ahead of the currently deployed commit.
+#   This check validates that the commits share a history and we don't deploy an old version by mistake.
+#
+usage() {
+    echo "Usage: ${0##*/} <host> <commit>"
+    exit 1
+}
+
+if [[ "$#" -ne 2 ]]; then
+  usage
+fi
+
+if ! command -v curl > /dev/null; then
+  echo "curl is missing."
+  exit 1
+fi
+
+if ! command -v git > /dev/null; then
+  echo "git is missing."
+  exit 1
+fi
+
+if ! command -v jq > /dev/null; then
+  echo "jq is missing."
+  exit 1
+fi
+
+host=$1
+local_commit=$2
+
+deployed_commit=$(curl -s "https://$host/health.json" | jq -r .gitCommit)
+
+if [[ -z "$deployed_commit" ]]; then
+  echo "Error retrieving deployed commit from $host.  Could not read from https://$host/health.json.  This may be due to a network error."
+  exit 1
+fi
+
+if [[ "$deployed_commit" == "null" ]]; then
+  echo "Error retrieving deployed commit from $host.  Deployed commit is null.  This may be due to an invalid JSON response."
+  exit 1
+fi
+
+if [[ "${deployed_commit}" == "${local_commit}" ]]; then
+  echo "* Deployed commit ($deployed_commit) is the local commit ($local_commit)."
+  echo "* Deploy can continue."
+  exit 0
+# See pattern at https://git-scm.com/docs/git-merge-base
+elif git merge-base --is-ancestor "$deployed_commit" "$local_commit"; then
+  echo "* Deployed commit ($deployed_commit) is an ancestor of the local commit ($local_commit)."
+  echo "* Deploy can continue."
+  exit 0
+else
+  echo "* Deployed commit ($deployed_commit) is not an ancestor of the local commit ($local_commit)."
+  echo "* The deployed commit is either ahead of the local commit or the commits have different histories."
+  echo "* Deploy is blocked."
+  if [ -n "${CIRCLECI+x}" ]; then
+    circleci-agent step halt
+  else
+    exit 1
+  fi
+fi

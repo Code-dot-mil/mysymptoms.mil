@@ -1,0 +1,54 @@
+{
+	"name": "mysymptoms.mil",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@deptofdefense/covid19-calculator": "^1.4.0",
+		"classnames": "^2.2.6",
+		"node-sass": "^5.0.0",
+		"react": "^17.0.2",
+		"react-app-polyfill": "^2.0.0",
+		"react-dom": "^17.0.2",
+		"react-icon": "^1.0.0",
+		"react-icons": "^4.2.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "4.0.3",
+		"typescript": "4.1.5",
+		"uswds": "^2.8.1",
+		"validate.js": "^0.13.1"
+	},
+	"devDependencies": {
+		"@testing-library/jest-dom": "^5.11.4",
+		"@testing-library/react": "^11.0.4",
+		"@testing-library/user-event": "^13.1.8",
+		"@types/classnames": "^2.2.9",
+		"@types/jest": "^26.0.13",
+		"@types/node": "^15.0.2",
+		"@types/react": "^17.0.5",
+		"@types/react-dom": "^17.0.3",
+		"@types/react-router-dom": "^5.1.5"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all",
+			"ie 11",
+			"ie 9"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}

@@ -1,0 +1,116 @@
+.wrapper {
+	padding: 20px 30px;
+	max-width: 900px;
+	margin: 0px auto;
+
+	@media screen and (max-width: 700px) {
+	}
+	@media screen and (max-width: 550px) {
+		padding: 20px 25px;
+	}
+	@media screen and (max-width: 450px) {
+		padding: 20px 20px;
+	}
+
+	h2 {
+		color: #496fd8;
+		font-weight: 300;
+		margin-top: 20px;
+		margin-bottom: 30px;
+		font-size: 42px;
+		text-align: center;
+		line-height: 1.25;
+		padding: 0px 10px;
+		font-family: 'Public Sans', sans-serif;
+
+		@media screen and (max-width: 700px) {
+			font-size: 40px;
+			margin-top: 15px;
+			margin-bottom: 20px;
+		}
+		@media screen and (max-width: 550px) {
+			font-size: 38px;
+			margin-top: 15px;
+			margin-bottom: 20px;
+		}
+		@media screen and (max-width: 450px) {
+			font-size: 34px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+	}
+	h3 {
+		font-weight: 300;
+		margin-top: 20px;
+		margin-bottom: 30px;
+		font-size: 26px;
+		text-align: center;
+		line-height: 1.25;
+		padding: 0px 10px;
+		font-family: 'Public Sans', sans-serif;
+
+		@media screen and (max-width: 700px) {
+			font-size: 22px;
+			margin-top: 15px;
+			margin-bottom: 20px;
+		}
+		@media screen and (max-width: 550px) {
+			font-size: 18px;
+			margin-top: 15px;
+			margin-bottom: 20px;
+		}
+		@media screen and (max-width: 450px) {
+			font-size: 16px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+	}
+
+	h4 {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 1.25;
+		padding: 0px 10px;
+		margin-bottom: 10px;
+
+		@media screen and (max-width: 700px) {
+			font-size: 22px;
+		}
+		@media screen and (max-width: 550px) {
+			font-size: 18px;
+		}
+		@media screen and (max-width: 450px) {
+			font-size: 16px;
+		}
+	}
+	.errorMsg {
+		display: flex;
+		justify-content: center;
+		color: #d54309;
+		margin-bottom: 20px;
+	}
+}
+.buttonContainer {
+	position: relative;
+	padding: 30px 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid #dedede;
+
+	@media screen and (max-width: 700px) {
+		border-top: none;
+		padding: 0px 30px 50px;
+	}
+
+	button {
+		width: 100%;
+		max-width: 300px;
+		margin-right: 0px;
+
+		@media screen and (max-width: 700px) {
+			max-width: none;
+		}
+	}
+}

@@ -1,0 +1,60 @@
+.checkboxWrapper {
+	margin-bottom: 20px;
+	display: block;
+
+	&.half {
+		width: 50%;
+		vertical-align: top;
+		display: inline-block;
+
+		&:nth-child(odd) {
+			padding-left: 10px;
+		}
+		&:nth-child(even) {
+			padding-right: 10px;
+		}
+
+		@media screen and (max-width: 700px) {
+			display: block;
+			width: 100%;
+
+			&:nth-child(odd) {
+				padding-left: 0px;
+			}
+			&:nth-child(even) {
+				padding-right: 0px;
+			}
+		}
+	}
+
+	input:checked + label::before {
+		background-size: 1.75rem auto !important;
+		background-color: #5cd5ee !important;
+		box-shadow: 0 0 0 2px #5cd5ee !important;
+	}
+	input:checked + label {
+		color: #07648d;
+	}
+	label {
+		display: flex;
+		align-items: center;
+		padding-left: 0px;
+		text-indent: 0px;
+		color: #757575;
+
+		&::before {
+			height: 40px;
+			width: 40px;
+			flex-shrink: 0;
+		}
+	}
+	.labelTextWrapper {
+		padding-left: 10px;
+		padding-right: 10px;
+
+		.labelPrimary {
+			font-size: 20px;
+			display: block;
+		}
+	}
+}
